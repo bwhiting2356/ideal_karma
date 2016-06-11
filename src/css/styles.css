@@ -18,13 +18,13 @@ body {
 #left-panel {
   top: 0;
   left: 0;
-  width: 45%; }
+  width: 48%; }
 
 #right-panel {
   right: 0;
   top: 0;
   background-color: #ffffff;
-  width: 54%;
+  width: 51%;
   padding-bottom: 60px;
   display: none; }
 
@@ -58,7 +58,12 @@ body {
   font-weight: normal;
   color: white;
   padding-left: 30px;
-  padding-right: 30px; }
+  padding-right: 30px;
+  cursor: pointer; }
+  .headers div div {
+    width: 30px;
+    background-image: url(../icons/dropdown.svg);
+    background-size: 30px 18px; }
 
 h2, h3 {
   font-family: Helvetica;

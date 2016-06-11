@@ -13,6 +13,19 @@ var $chart_container = $('#chart-container');
 
 // chart configurations
 
+$.ajax({
+    url: 'https://dry-brushlands-97078.herokuapp.com/db',
+    type: 'post',
+    data: "+18479248273",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    dataType: 'json',
+    success: function (data) {
+        console.info(data);
+    }
+});
+
 var chart_options = {
     scales: {
         yAxes: [{
@@ -54,7 +67,6 @@ function make_chart_data(transactions) {
 $.getJSON(url, function(response) {
     users = response.users;
     transactions = response.transactions;
-    console.log(users, transactions);
 
     $.each(users, function(index, value) {
         var user_div = $('<div></div>')
