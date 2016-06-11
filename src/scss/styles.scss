@@ -1,0 +1,137 @@
+@import 'reset';
+
+$color-dark-blue: #4a90e2;
+$color-light-blue: #ebf1f3;
+$color-dark-green: #6DB02D;
+$color-light-green: #F1FBE8;
+$color-dark-grey: #4e4e5c;
+$color-light-grey: #cdcdcd;
+
+$margin-default: 60px;
+
+body {
+    background-color: $color-light-blue;
+}
+
+#left-panel,
+#right-panel {
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+#left-panel {
+  top: 0;
+  left: 0;
+  width: 45%;
+}
+
+#right-panel {
+  right: 0;
+  top: -1000px;
+  background-color: #ffffff;
+  width: 54%;
+  padding-bottom: $margin-default;
+  transition: top .3s ease;
+}
+
+#right-panel.showing {
+  top: 0;
+}
+
+.brand-logo {
+  width: 249px;
+  height: 57px;
+  font-family: HelveticaNeue;
+  font-size: 48px;
+  font-weight: normal;
+  letter-spacing: 0.8px;
+  color: $color-dark-blue;
+  font-weight: 300;
+  margin-left: $margin-default / 2;
+  margin-top: $margin-default / 2;
+}
+
+.brand-logo span {
+  color: $color-dark-green;
+  font-weight: bold;
+}
+
+.container {
+    margin: ($margin-default / 2) $margin-default 0 $margin-default;
+}
+
+.headers {
+    background-color: $color-dark-blue;
+    height: 60px;
+    line-height: 60px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-family: Helvetica;
+    font-size: 14px;
+    font-weight: normal;
+    color: white;
+    padding-left: $margin-default / 2;
+    padding-right: $margin-default / 2;
+}
+
+.rows {
+}
+
+h2, h3 {
+    font-family: Helvetica;
+    color: $color-dark-blue;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+.col-phone,
+.col-regis-date,
+.col-balance,
+.col-sender,
+.col-recipient,
+.col-datetime,
+.col-amount {
+    display: inline-block;
+    
+}
+
+.col-phone,
+.col-sender,
+.col-recipient {
+    width: 150px;
+}
+
+.col-balance,
+.col-amount {
+    float: right;
+}
+
+.user-row,
+.transaction-row,
+.account-details {
+    height: 50px;
+    line-height: 50px;
+    background: white;
+    padding-left: $margin-default / 2;
+    padding-right: $margin-default / 2;
+    color: $color-dark-grey;
+    border-bottom: 1px solid $color-light-grey;
+    cursor: pointer;
+}
+
+.active {
+    background-color: $color-light-green;
+    font-weight: bold;
+}
+
+#chart {
+    height: 200px;
+
+}
