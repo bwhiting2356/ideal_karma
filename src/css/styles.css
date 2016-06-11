@@ -1,0 +1,112 @@
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: #ebf1f3; }
+
+#left-panel,
+#right-panel {
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute; }
+
+#left-panel {
+  top: 0;
+  left: 0;
+  width: 45%; }
+
+#right-panel {
+  right: 0;
+  top: -1000px;
+  background-color: #ffffff;
+  width: 54%;
+  padding-bottom: 60px;
+  transition: top .3s ease; }
+
+#right-panel.showing {
+  top: 0; }
+
+.brand-logo {
+  width: 249px;
+  height: 57px;
+  font-family: HelveticaNeue;
+  font-size: 48px;
+  font-weight: normal;
+  letter-spacing: 0.8px;
+  color: #4a90e2;
+  font-weight: 300;
+  margin-left: 30px;
+  margin-top: 30px; }
+
+.brand-logo span {
+  color: #6DB02D;
+  font-weight: bold; }
+
+.container {
+  margin: 30px 60px 0 60px; }
+
+.headers {
+  background-color: #4a90e2;
+  height: 60px;
+  line-height: 60px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  font-family: Helvetica;
+  font-size: 14px;
+  font-weight: normal;
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px; }
+
+h2, h3 {
+  font-family: Helvetica;
+  color: #4a90e2; }
+
+h2 {
+  font-size: 24px; }
+
+h3 {
+  font-size: 18px; }
+
+.col-phone,
+.col-regis-date,
+.col-balance,
+.col-sender,
+.col-recipient,
+.col-datetime,
+.col-amount {
+  display: inline-block; }
+
+.col-phone,
+.col-sender,
+.col-recipient {
+  width: 150px; }
+
+.col-balance,
+.col-amount {
+  float: right; }
+
+.user-row,
+.transaction-row,
+.account-details {
+  height: 50px;
+  line-height: 50px;
+  background: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #4e4e5c;
+  border-bottom: 1px solid #cdcdcd;
+  cursor: pointer; }
+
+.active {
+  background-color: #F1FBE8;
+  font-weight: bold; }
+
+#chart {
+  height: 200px; }
+
+/*# sourceMappingURL=styles.css.map */
