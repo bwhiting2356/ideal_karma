@@ -28,15 +28,11 @@ body {
 
 #right-panel {
   right: 0;
-  top: -1000px;
+  top: 0;
   background-color: #ffffff;
   width: 54%;
   padding-bottom: $margin-default;
-  transition: top .3s ease;
-}
-
-#right-panel.showing {
-  top: 0;
+  display: none;
 }
 
 .brand-logo {
@@ -58,10 +54,11 @@ body {
 }
 
 .container {
-    margin: ($margin-default / 2) $margin-default 0 $margin-default;
+    margin: ($margin-default / 2) $margin-default $margin-default $margin-default;
 }
 
 .headers {
+    font-family: Helvetica;
     background-color: $color-dark-blue;
     height: 60px;
     line-height: 60px;
@@ -73,9 +70,6 @@ body {
     color: white;
     padding-left: $margin-default / 2;
     padding-right: $margin-default / 2;
-}
-
-.rows {
 }
 
 h2, h3 {
@@ -99,7 +93,6 @@ h3 {
 .col-datetime,
 .col-amount {
     display: inline-block;
-    
 }
 
 .col-phone,
@@ -123,7 +116,10 @@ h3 {
     padding-right: $margin-default / 2;
     color: $color-dark-grey;
     border-bottom: 1px solid $color-light-grey;
-    cursor: pointer;
+}
+
+.user-row {
+   cursor: pointer;
 }
 
 .active {
@@ -131,7 +127,6 @@ h3 {
     font-weight: bold;
 }
 
-#chart {
-    height: 200px;
-
+.account-details {
+  margin-bottom: $margin-default / 2;
 }

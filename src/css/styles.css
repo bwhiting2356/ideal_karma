@@ -21,14 +21,11 @@ body {
 
 #right-panel {
   right: 0;
-  top: -1000px;
+  top: 0;
   background-color: #ffffff;
   width: 54%;
   padding-bottom: 60px;
-  transition: top .3s ease; }
-
-#right-panel.showing {
-  top: 0; }
+  display: none; }
 
 .brand-logo {
   width: 249px;
@@ -47,9 +44,10 @@ body {
   font-weight: bold; }
 
 .container {
-  margin: 30px 60px 0 60px; }
+  margin: 30px 60px 60px 60px; }
 
 .headers {
+  font-family: Helvetica;
   background-color: #4a90e2;
   height: 60px;
   line-height: 60px;
@@ -99,14 +97,16 @@ h3 {
   padding-left: 30px;
   padding-right: 30px;
   color: #4e4e5c;
-  border-bottom: 1px solid #cdcdcd;
+  border-bottom: 1px solid #cdcdcd; }
+
+.user-row {
   cursor: pointer; }
 
 .active {
   background-color: #F1FBE8;
   font-weight: bold; }
 
-#chart {
-  height: 200px; }
+.account-details {
+  margin-bottom: 30px; }
 
 /*# sourceMappingURL=styles.css.map */
