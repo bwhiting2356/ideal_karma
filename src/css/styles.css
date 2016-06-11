@@ -6,7 +6,8 @@ ol {
   padding: 0; }
 
 body {
-  background-color: #ebf1f3; }
+  background-color: #ebf1f3;
+  font-family: Helvetica; }
 
 #left-panel,
 #right-panel {
@@ -30,7 +31,6 @@ body {
 .brand-logo {
   width: 249px;
   height: 57px;
-  font-family: HelveticaNeue;
   font-size: 48px;
   font-weight: normal;
   letter-spacing: 0.8px;

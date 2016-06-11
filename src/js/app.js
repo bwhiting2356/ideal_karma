@@ -22,17 +22,30 @@ var chart_options = {
         }]
     },
     legend: {
-        display: false
+        display: false  
+    },
+    title: {
+        display: true,
+        text: 'Insights'
+    },
+    scales: {
+        yAxes: [{
+            display: true,
+            ticks: {
+                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+            }
+        }]
+
     }
 };
 
-var chart_labels = ["Jan", "Feb", "March", "April", "May", "June"];
-var chart_background_color =  'rgba(109,176,45,0.2)';
+var chart_labels = ["Income", "Spending"];
+var chart_background_color = 'rgba(109,176,45,0.2)';
 var chart_border_color = '#6DB02D';
 
 function make_chart_data(transactions) {
     // this doesn't actually work yet, here is some fake data
-    return [0, 11, 8, 5, -3, 13];
+    return [15, 13];
 }
     
 
@@ -92,7 +105,9 @@ function find_transactions(transactions, id) {
 /* when someone clicks on a user in the left panel, 
  it will fill out the right panel with their transactions */
 
+
 var make_current_user = function() {
+    // $right_panel.css('top', '-1000px');
     $right_panel.show();   // need to set to show here to avoid chart bug on the first click
 
     // remove active class from all the rows
@@ -141,25 +156,24 @@ var make_current_user = function() {
     // reset and make chart
     
     $chart_container.empty();
-    var $chart_canvas = $('<canvas id="myChart" width="570" height="300"></canvas>');
+    var $chart_canvas = $('<canvas id="myChart" width="570" height="200"></canvas>');
     $chart_container.append($chart_canvas);
     
     var myChart = new Chart($chart_canvas, {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: chart_labels,
             datasets: [{
-                data: make_chart_data(user_transactions),  // this doesn't actually work yet
-                backgroundColor: chart_background_color,
-                borderColor: chart_border_color,
+                data: [8, 11],  // this doesn't actually work yet
+                backgroundColor: ["rgba(109,176,45,0.6)", "rgba(245,166,35, 0.6)"],
+                borderColor: ["rgba(109,176,45,1)", "rgba(245,166,35, 1)"],
                 borderWidth: 1
             }]
         },
         options: chart_options
+
+        // #F5A623
     });
-
-
-    // animate in right panel again
-    $right_panel.css('top', '-1000px');
+    $right_panel.css("top", "-1000px");
     $right_panel.animate({"top": "0px"}, "1.3s");
 };

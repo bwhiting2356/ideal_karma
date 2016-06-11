@@ -11,6 +11,7 @@ $margin-default: 60px;
 
 body {
     background-color: $color-light-blue;
+    font-family: Helvetica;
 }
 
 #left-panel,
@@ -38,7 +39,6 @@ body {
 .brand-logo {
   width: 249px;
   height: 57px;
-  font-family: HelveticaNeue;
   font-size: 48px;
   font-weight: normal;
   letter-spacing: 0.8px;
@@ -70,6 +70,10 @@ body {
     color: white;
     padding-left: $margin-default / 2;
     padding-right: $margin-default / 2;
+
+    .hover {
+      
+    }
 }
 
 h2, h3 {
