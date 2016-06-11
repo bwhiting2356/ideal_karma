@@ -27,6 +27,13 @@ var chart_options = {
 };
 
 var chart_labels = ["Jan", "Feb", "March", "April", "May", "June"];
+var chart_background_color =  'rgba(109,176,45,0.2)';
+var chart_border_color = '#6DB02D';
+
+function make_chart_data(transactions) {
+    // this doesn't actually work yet, here is some fake data
+    return [0, 11, 8, 5, -3, 13];
+}
     
 
 // fetch mock data
@@ -142,9 +149,9 @@ var make_current_user = function() {
         data: {
             labels: chart_labels,
             datasets: [{
-                data: [0, 19, 3, 5, 2, 3],
-                backgroundColor: ['rgba(109,176,45,0.2)'],
-                borderColor: ['#6DB02D'],
+                data: make_chart_data(user_transactions),  // this doesn't actually work yet
+                backgroundColor: chart_background_color,
+                borderColor: chart_border_color,
                 borderWidth: 1
             }]
         },
