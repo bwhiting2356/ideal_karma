@@ -11,20 +11,82 @@ var $account_details_date = $right_panel.find('.col-regis-date');
 var $account_details_balance = $right_panel.find('.col-balance');
 var $chart_container = $('#chart-container');
 
+// sort rows 
+
+function sort_user_table() {
+    $.each($(this).parent().children(), function(index, value) {
+        $(value).removeClass('sorting');
+    });
+    $(this).addClass('sorting');
+    var sort_field = $(this).attr('data-sort');
+    users = users.sort(function(a, b) {
+        return a[sort_field] > b[sort_field];
+    });
+    $user_list.empty();
+    populate_user_table(users);
+};
+
+function sort_transaction_table() {
+    $.each($(this).parent().children(), function(index, value) {
+        $(value).removeClass('sorting');
+    });
+    $(this).addClass('sorting');
+
+};
+
+var left_panel_headers = $('#left-panel').find('.headers').children();
+$.each(left_panel_headers, function(index, value) {
+    $(value).click(sort_user_table);
+});
+
+var right_panel_headers = $('#right-panel').find('.headers').children();
+$.each(right_panel_headers, function(index, value) {
+    $(value).click(sort_transaction_table);
+});
+
 // chart configurations
 
-$.ajax({
-    url: 'https://dry-brushlands-97078.herokuapp.com/db',
-    type: 'post',
-    data: "+18479248273",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    dataType: 'json',
-    success: function (data) {
-        console.info(data);
+function parse_transactions(transactions, user) {
+    var transactions_list = [];
+    for (var i = 0; i < transactions.inboundInfo.length; i++) {
+        var transaction_item = {
+            inbound: transactions.inboundInfo[i].who_from,
+            outbound: user.phone,
+            amount: transactions.user
+        };
+        transactions_list.push(transaction_item);
     }
-});
+    for (var i = 0; i < transactions.outboundInfo.length; i++) {
+        var transaction_item = {
+            outbound: transactions.outboundInfo[i].who_to,
+            inbound: user.phone,
+            amount: transactions.user
+        };
+        transactions_list.push(transaction_item);
+    }
+
+    return transactions_list;
+}
+
+function get_user_transactions(user) {
+    $.ajax({
+        url: 'https://dry-brushlands-97078.herokuapp.com/db',
+        type: 'post',
+        data: user.phone,
+        headers: {
+            "Content-Type": "application/json"
+        },
+        dataType: 'json',
+        success: function (data) {
+            transactions = data;
+            console.log("transactions line 82" + transactions);
+            populate_transactions_table(parse_transactions(transactions, user));
+        }
+    });
+
+}
+
+
 
 var chart_options = {
     scales: {
@@ -62,12 +124,9 @@ function make_chart_data(transactions) {
 }
     
 
-// fetch mock data
+// fills out user table
 
-$.getJSON(url, function(response) {
-    users = response.users;
-    transactions = response.transactions;
-
+function populate_user_table(users) {
     $.each(users, function(index, value) {
         var user_div = $('<div></div>')
             .addClass('user-row')
@@ -82,12 +141,49 @@ $.getJSON(url, function(response) {
         var balance = $('<div></div>')
             .addClass('col-balance')
             .text(value.balance);
-
         user_div.append(phone)
                 .append(regis_date)
                 .append(balance);
         $user_list.append(user_div);
     });
+
+}    
+
+// fills out transaction table
+
+function populate_transactions_table(user_transactions) {
+    console.log(user_transactions);
+    $.each(user_transactions , function(index, value) {
+        var transaction_div = $('<div></div>')
+            .addClass('transaction-row');
+        var inbound = $('<div></div>')
+            .addClass('col-inbound')
+            .text(value.inbound);  
+        var outbound = $('<div></div>')
+            .addClass('col-outbound')
+            .text(value.outbound);  
+        var datetime = $('<div></div>')
+            .addClass('col-datetime')
+            .text("06-11-2016 4:02pm");
+        var amount = $('<div></div>')
+            .addClass('col-amount')
+            .text("$" + value.amount + ".00");
+        transaction_div.append(inbound)
+                       .append(outbound)
+                       .append(datetime)
+                       .append(amount);
+        
+        $transaction_list.append(transaction_div);
+    });
+}
+
+
+// fetch mock data
+
+$.getJSON(url, function(response) {
+    users = response.users;
+    // transactions = response.transactions;
+    populate_user_table(users);
 });
 
 // find the user object from the array from its id
@@ -138,32 +234,33 @@ var make_current_user = function() {
     $account_details_balance.text(current_user.balance); 
 
     $transaction_list.empty();
-    var user_transactions = find_transactions(transactions, id);
+    var user_transactions = get_user_transactions(current_user);
+    // var user_transactions = find_transactions(transactions, id);
 
     // fill out transaction list
 
-    $.each(user_transactions , function(index, value) {
-        var transaction_div = $('<div></div>')
-            .addClass('transaction-row')
-            .attr("data-id", value.id);
-        var sender = $('<div></div>')
-            .addClass('col-sender')
-            .text(find_user(users, value.sender).phone);  // this is probably REALLY inefficient, sorry.......
-        var recipient = $('<div></div>')
-            .addClass('col-recipient')
-            .text(find_user(users, value.recipient).phone);  // this is probably REALLY inefficient, sorry.......
-        var datetime = $('<div></div>')
-            .addClass('col-datetime')
-            .text(value.datetime);
-        var amount = $('<div></div>')
-            .addClass('col-amount')
-            .text(value.amount);
-        transaction_div.append(sender)
-                       .append(recipient)
-                       .append(datetime)
-                       .append(amount);
-        $transaction_list.append(transaction_div);
-    });
+    // $.each(user_transactions , function(index, value) {
+    //     var transaction_div = $('<div></div>')
+    //         .addClass('transaction-row')
+    //         .attr("data-id", value.id);
+    //     var sender = $('<div></div>')
+    //         .addClass('col-sender')
+    //         .text(find_user(users, value.sender).phone);  // this is probably REALLY inefficient, sorry.......
+    //     var recipient = $('<div></div>')
+    //         .addClass('col-recipient')
+    //         .text(find_user(users, value.recipient).phone);  // this is probably REALLY inefficient, sorry.......
+    //     var datetime = $('<div></div>')
+    //         .addClass('col-datetime')
+    //         .text(value.datetime);
+    //     var amount = $('<div></div>')
+    //         .addClass('col-amount')
+    //         .text(value.amount);
+    //     transaction_div.append(sender)
+    //                    .append(recipient)
+    //                    .append(datetime)
+    //                    .append(amount);
+    //     $transaction_list.append(transaction_div);
+    // });
 
     // reset and make chart
     

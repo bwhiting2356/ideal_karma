@@ -7,7 +7,7 @@ $color-light-green: #F1FBE8;
 $color-dark-grey: #4e4e5c;
 $color-light-grey: #cdcdcd;
 
-$margin-default: 60px;
+$margin-default: 40px;
 
 body {
     background-color: $color-light-blue;
@@ -24,34 +24,42 @@ body {
 #left-panel {
   top: 0;
   left: 0;
-  width: 48%;
+  width: 45%;
 }
 
 #right-panel {
   right: 0;
   top: 0;
   background-color: #ffffff;
-  width: 51%;
+  width: 54%;
   padding-bottom: $margin-default;
   display: none;
 }
 
 .brand-logo {
+  font-family: Georgia;
   width: 249px;
   height: 57px;
   font-size: 48px;
   font-weight: normal;
   letter-spacing: 0.8px;
   color: $color-dark-blue;
-  font-weight: 300;
+  font-weight: bold;
   margin-left: $margin-default / 2;
   margin-top: $margin-default / 2;
 }
 
-.brand-logo span {
+.brand-logo span.i {
+  font-weight: bold;
+  font-style: italic; 
+}
+
+.brand-logo span.deal {
   color: $color-dark-green;
   font-weight: bold;
+  font-style: italic; 
 }
+
 
 .container {
     margin: ($margin-default / 2) $margin-default $margin-default $margin-default;
@@ -71,11 +79,31 @@ body {
     padding-left: $margin-default / 2;
     padding-right: $margin-default / 2;
     cursor: pointer;
-    div div {
-      width: 30px;
-      background-image: url(../icons/dropdown.svg);
-      background-size: 30px 18px;
+
+    div {
+      &:hover {
+        img {
+          opacity: 0.5;
+        }
+      }
+
+      &.sorting {
+        img {
+          opacity: 1;
+        }
+      }
+
+      img {
+        opacity: 0;
+        margin-bottom: -4px;
+        width: 30px;
+        background-image: url(../icons/dropdown.svg);
+        background-size: 30px 18px;
+      }
+
+
     }
+
 }
 
 h2, h3 {
@@ -94,16 +122,20 @@ h3 {
 .col-phone,
 .col-regis-date,
 .col-balance,
-.col-sender,
-.col-recipient,
+.col-inbound,
+.col-outbound,
 .col-datetime,
 .col-amount {
     display: inline-block;
 }
 
-.col-phone,
-.col-sender,
-.col-recipient {
+.col-phone {
+  width: 170px;
+}
+
+.col-inbound,
+.col-outbound,
+.col-regis-date {
     width: 150px;
 }
 
