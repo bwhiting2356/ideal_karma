@@ -1,0 +1,171 @@
+@import 'reset';
+
+$color-dark-blue: #4a90e2;
+$color-light-blue: #ebf1f3;
+$color-dark-green: #6DB02D;
+$color-light-green: #F1FBE8;
+$color-dark-grey: #4e4e5c;
+$color-light-grey: #cdcdcd;
+
+$margin-default: 40px;
+
+body {
+    background-color: $color-light-blue;
+    font-family: Helvetica;
+}
+
+#left-panel,
+#right-panel {
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute;
+}
+
+#left-panel {
+  top: 0;
+  left: 0;
+  width: 45%;
+}
+
+#right-panel {
+  right: 0;
+  top: 0;
+  background-color: #ffffff;
+  width: 54%;
+  padding-bottom: $margin-default;
+  display: none;
+}
+
+.brand-logo {
+  font-family: Georgia;
+  width: 249px;
+  height: 57px;
+  font-size: 48px;
+  font-weight: normal;
+  letter-spacing: 0.8px;
+  color: $color-dark-blue;
+  font-weight: bold;
+  margin-left: $margin-default / 2;
+  margin-top: $margin-default / 2;
+}
+
+.brand-logo span.i {
+  font-weight: bold;
+  font-style: italic; 
+}
+
+.brand-logo span.deal {
+  color: $color-dark-green;
+  font-weight: bold;
+  font-style: italic; 
+}
+
+
+.container {
+    margin: ($margin-default / 2) $margin-default $margin-default $margin-default;
+}
+
+.headers {
+    font-family: Helvetica;
+    background-color: $color-dark-blue;
+    height: 60px;
+    line-height: 60px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    font-family: Helvetica;
+    font-size: 14px;
+    font-weight: normal;
+    color: white;
+    padding-left: $margin-default / 2;
+    padding-right: $margin-default / 2;
+    cursor: pointer;
+
+    div {
+      &:hover {
+        img {
+          opacity: 0.5;
+        }
+      }
+
+      &.sorting {
+        img {
+          opacity: 1;
+        }
+      }
+
+      img {
+        opacity: 0;
+        margin-bottom: -4px;
+        width: 30px;
+        background-image: url(../icons/dropdown.svg);
+        background-size: 30px 18px;
+      }
+
+
+    }
+
+}
+
+h2, h3 {
+    font-family: Helvetica;
+    color: $color-dark-blue;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+.col-phone,
+.col-regis-date,
+.col-balance,
+.col-inbound,
+.col-outbound,
+.col-datetime,
+.col-amount {
+    display: inline-block;
+}
+
+.col-phone {
+  width: 170px;
+}
+
+.col-inbound,
+.col-outbound,
+.col-regis-date {
+    width: 150px;
+}
+
+.col-balance,
+.col-amount {
+    float: right;
+}
+
+.user-row,
+.transaction-row,
+.account-details {
+    height: 50px;
+    line-height: 50px;
+    background: white;
+    padding-left: $margin-default / 2;
+    padding-right: $margin-default / 2;
+    color: $color-dark-grey;
+    border-bottom: 1px solid $color-light-grey;
+}
+
+.user-row {
+   cursor: pointer;
+}
+
+.active {
+    background-color: $color-light-green;
+    font-weight: bold;
+}
+
+.account-details {
+  margin-bottom: $margin-default / 2;
+  font-weight: bold;
+}

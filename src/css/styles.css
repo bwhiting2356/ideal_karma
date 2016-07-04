@@ -1,0 +1,133 @@
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: #ebf1f3;
+  font-family: Helvetica; }
+
+#left-panel,
+#right-panel {
+  display: inline-block;
+  box-sizing: border-box;
+  position: absolute; }
+
+#left-panel {
+  top: 0;
+  left: 0;
+  width: 45%; }
+
+#right-panel {
+  right: 0;
+  top: 0;
+  background-color: #ffffff;
+  width: 54%;
+  padding-bottom: 40px;
+  display: none; }
+
+.brand-logo {
+  font-family: Georgia;
+  width: 249px;
+  height: 57px;
+  font-size: 48px;
+  font-weight: normal;
+  letter-spacing: 0.8px;
+  color: #4a90e2;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 20px; }
+
+.brand-logo span.i {
+  font-weight: bold;
+  font-style: italic; }
+
+.brand-logo span.deal {
+  color: #6DB02D;
+  font-weight: bold;
+  font-style: italic; }
+
+.container {
+  margin: 20px 40px 40px 40px; }
+
+.headers {
+  font-family: Helvetica;
+  background-color: #4a90e2;
+  height: 60px;
+  line-height: 60px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  font-family: Helvetica;
+  font-size: 14px;
+  font-weight: normal;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  cursor: pointer; }
+  .headers div:hover img {
+    opacity: 0.5; }
+  .headers div.sorting img {
+    opacity: 1; }
+  .headers div img {
+    opacity: 0;
+    margin-bottom: -4px;
+    width: 30px;
+    background-image: url(../icons/dropdown.svg);
+    background-size: 30px 18px; }
+
+h2, h3 {
+  font-family: Helvetica;
+  color: #4a90e2; }
+
+h2 {
+  font-size: 24px; }
+
+h3 {
+  font-size: 18px; }
+
+.col-phone,
+.col-regis-date,
+.col-balance,
+.col-inbound,
+.col-outbound,
+.col-datetime,
+.col-amount {
+  display: inline-block; }
+
+.col-phone {
+  width: 170px; }
+
+.col-inbound,
+.col-outbound,
+.col-regis-date {
+  width: 150px; }
+
+.col-balance,
+.col-amount {
+  float: right; }
+
+.user-row,
+.transaction-row,
+.account-details {
+  height: 50px;
+  line-height: 50px;
+  background: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #4e4e5c;
+  border-bottom: 1px solid #cdcdcd; }
+
+.user-row {
+  cursor: pointer; }
+
+.active {
+  background-color: #F1FBE8;
+  font-weight: bold; }
+
+.account-details {
+  margin-bottom: 20px;
+  font-weight: bold; }
+
+/*# sourceMappingURL=styles.css.map */

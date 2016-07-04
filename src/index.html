@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Ideal Karma</title>
+  </head>
+  <body>
+    <div id="left-panel">
+      <div class="brand-logo">
+        <span class="i">i</span><span class="deal">deal</span>karma
+      </div>
+      <div class="container">
+        <h2>Accounts</h2>
+          <div class="headers">
+            <div class="col-phone" data-sort="phone">Phone Number<img class="dropdown-icon" src="../icons/dropdown.svg"></div>
+            <div class="col-regis-date" data-sort="regis-date">Registration Date<img class="dropdown-icon" src="../icons/dropdown.svg"></div>
+            <div class="col-balance" data-sort="balance">Balance<img class="dropdown-icon" src="../icons/dropdown.svg"></div>
+          </div>
+      
+          <div id="user-list">  
+              <!-- filled in dynamically from api -->
+          </div>
+      </div>
+    </div>
+    <div id="right-panel">
+      <div class="container">
+        <h2>Account Details</h2>
+        <div class="account-details">
+          <div class="col-phone"></div>
+          <div class="col-regis-date"></div>
+          <div class="col-balance"></div>
+        </div>
+        <div id="chart-container">
+        </div>
+        <h3>Past Transactions</h3>
+        <div class="headers">
+          <div class="col-inbound">Inbound<img class="dropdown-icon" src="../icons/dropdown.svg"></div>
+          <div class="col-outbound">Outbound<img class="dropdown-icon" src="../icons/dropdown.svg"></div>
+          <div class="col-datetime">Time and Date<img class="dropdown-icon" src="../icons/dropdown.svg"></div>
+          <div class="col-amount">Amount<img class="dropdown-icon" src="../icons/dropdown.svg"></div>
+        </div>
+        <div id="transaction-list">  
+          <!-- filled in dynamically from api -->
+        </div>
+      </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/Chart.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
